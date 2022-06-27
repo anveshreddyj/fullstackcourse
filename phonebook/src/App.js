@@ -144,8 +144,15 @@ const App = () => {
           setTimeout(() => {
             setErrorMessage(null)
           }, 5000)
-        }
-        )
+        })
+        .catch(error => {
+          // this is the way to access the error message
+          //console.log(error.response.data.error)
+          setErrorMessage({message:error.response.data.error,messageClass:`error`})
+          setTimeout(() => {
+            setErrorMessage(null)
+          }, 5000)
+        })
     }
     //setPersons(persons.concat(newEntry))  
   
